@@ -1,5 +1,4 @@
 ﻿<?php 
-
 session_start();
 
 include ('./system/connect.php');
@@ -14,7 +13,7 @@ if(!isset($_SESSION['mid'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>Sisda</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -96,7 +95,7 @@ if(!isset($_SESSION['mid'])){
     <section class="content">
         <div class="container-fluid">
         <?php 
-                if($_GET['page']==''){
+            if($_GET['page']==''){
                 include ('pages/allsites.php');
             }else{
                 include "pages/".$_GET['page'].".php";
