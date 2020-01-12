@@ -1,9 +1,9 @@
 <?php 
 include "../system/connect.php";
 
-      if($_POST['contact']){      
-        $contact = $_POST['contact'];
-        $sql = mysqli_query($db,"INSERT INTO contact_center (name) VALUES ('$contact')");
+      if($_POST['department']){      
+        $department = $_POST['department'];
+        $sql = mysqli_query($db,"INSERT INTO department (name) VALUES ('$department')");
             if($sql){
                 echo "บันทึกข้อมูลเรียบร้อยแล้ว";
             }else{
@@ -11,9 +11,9 @@ include "../system/connect.php";
             }
       }
 
-      if($_POST['delcontact']){
-          $delcontact = $_POST['delcontact'];
-          $del = mysqli_query($db,"DELETE FROM contact_center WHERE id = '$delcontact'");
+      if($_POST['deldepartment']){
+          $deldepartment = $_POST['deldepartment'];
+          $del = mysqli_query($db,"DELETE FROM department WHERE id = '$deldepartment'");
             if($del){
                 echo "ลบมูลเรียบร้อยแล้ว";
             }else{
@@ -23,8 +23,8 @@ include "../system/connect.php";
 
       if($_POST['id']){
             $id = $_POST['id'];
-            $update_contact = $_POST['update_contact'];
-            $update = mysqli_query($db,"UPDATE contact_center SET name = '$update_contact' WHERE id = '$id'");
+            $update_department = $_POST['update_department'];
+            $update = mysqli_query($db,"UPDATE department SET name = '$update_department' WHERE id = '$id'");
                 if($update){
                     echo "แก้ไขข้อมูลแล้ว";
                 }else{

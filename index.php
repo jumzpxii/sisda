@@ -21,7 +21,7 @@ if(!isset($_SESSION['mid'])){
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Bootstrap Core Css -->
     <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
@@ -116,7 +116,7 @@ if(!isset($_SESSION['mid'])){
     <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
-    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script> -->
 
     <!-- Waves Effect Plugin Js -->
     <script src="plugins/node-waves/waves.js"></script>
@@ -143,10 +143,13 @@ if(!isset($_SESSION['mid'])){
 
     <!-- Custom Js -->
     <script src="js/admin.js"></script>
+    <script src="js/pages/forms/form-validation.js"></script>
+    <script src="plugins/jquery-validation/jquery.validate.js"></script>
+
     <!-- <script src="js/pages/index.js"></script> -->
 
     <!-- Demo Js -->
-    <script src="js/demo.js"></script>
+    <!-- <script src="js/demo.js"></script> -->
     
     <!-- Jquery DataTable Plugin Js -->
     <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
