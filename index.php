@@ -149,7 +149,7 @@ if(!isset($_SESSION['mid'])){
     <!-- <script src="js/pages/index.js"></script> -->
 
     <!-- Demo Js -->
-    <!-- <script src="js/demo.js"></script> -->
+    <script src="js/demo.js"></script>
     
     <!-- Jquery DataTable Plugin Js -->
     <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>

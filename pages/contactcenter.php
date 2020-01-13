@@ -13,12 +13,12 @@
                             <form class="form-horizontal form_advanced_validation">
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="contact">ศูนย์บริการ</label>
+                                        <label for="contact">สาขาบริการ</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" id="contact" class="form-control" placeholder="สาขา...">
+                                                <input type="text" id="contact" class="form-control" placeholder="สาขา....">
                                             </div>
                                         </div>
                                     </div>

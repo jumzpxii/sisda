@@ -1,7 +1,7 @@
           
           <div class="block-header"  style="margin-top:-50px;">
                 <h2>
-                   LDATATABLES
+                   DATATABLES
                     <!-- <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small> -->
                 </h2>
             </div>

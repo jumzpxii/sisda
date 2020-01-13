@@ -1,6 +1,7 @@
 $(function () {
     $('.js-basic-example').DataTable({
-        responsive: true
+        responsive: true,
+        iDisplayLength: 25
     });
 
     //Exportable table
