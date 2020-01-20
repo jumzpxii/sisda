@@ -1,6 +1,9 @@
 <link href="./plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-<link href="./plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+<!-- <link href="./plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" /> -->
 <link href="./plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+<script src="./plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<!-- <script src="./plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> -->
+
 <!-- Example Tab -->
 <div class="row" style="margin-top:-50px;">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -88,7 +91,19 @@
                                     </select>                                                                        
                                 </div>
                             </div>
-                                
+                            <div class="row clearfix">
+                                <div class="col-xs-4">
+                                    <h2 class="card-inside-title">Component</h2>
+                                    <div class="input-group date" id="bs_datepicker_component_container">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control datepicker" placeholder="Please choose a date...">
+                                        </div>
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">date_range</i>
+                                        </span>
+                                    </div>
+                                </div> 
+                            </div>   
                             
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="marketing">
@@ -108,8 +123,9 @@
         </div>
     </div>
 </div>
-            <!-- #END# Example Tab -->
 
-<!-- Bootstrap Datepicker Plugin Js -->
-<script src="./plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-
+<script>
+$('.datepicker').datepicker({
+    format: 'dd/mm/yyyy'
+});
+</script>

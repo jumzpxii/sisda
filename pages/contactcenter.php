@@ -110,14 +110,7 @@ $(document).ready(function(){
                 type:"POST",
                 data:{contact:contact},
                 success:function(data){
-                    swal({
-                        title: "สำเร็จ",
-                        text: data,
-                        icon: "success",
-                        timer: 1000
-                    }).then(function() {
-                        window.location.reload();
-                    });
+                    swall_success(data);
                 }
             }); 
         }       
@@ -174,7 +167,7 @@ $(document).ready(function(){
         $.ajax({
             url:"./response/contactdata.php",
             type:"POST",
-            data: $("#updateContact").serialize(),
+            data: check,
             success:function(data){
                 swal({
                     title: data,

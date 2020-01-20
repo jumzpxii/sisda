@@ -54,8 +54,7 @@
                                             <td><?=$show['type']?></td>
                                             <td><?=$show['service']?></td>
                                             <td><?php echo DateThai($show['from_name'])?></td>
-                                            <td></td>
-                                            
+                                            <td></td>                                           
                                         </tr>
                                     <?php $i++; } ?>
                                     </tbody>
