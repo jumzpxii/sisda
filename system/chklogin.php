@@ -21,7 +21,8 @@
 			$_SESSION[level] = $objResult["level"];
 			// setcookie("user", $_POST['user'], time() + $lifetime, "/");
 			// setcookie("pass", $_POST['pass'], time() + $lifetime, "/");
-
+			setcookie('same-site-cookie', $objResult["username"], ['samesite' => 'Lax']);
+			setcookie('cross-site-cookie', $objResult["username"], ['samesite' => 'None', 'secure' => true]);
 
 			session_write_close();
 			?>

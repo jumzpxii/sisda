@@ -15,10 +15,19 @@ include "../system/function.php";
 		<div class="col-md-6 offset-md-3">
 			<h4>Latest News</h4>
 			<ul class="timeline">
+			<?php 
+				$sql2 = mysqli_query($db,"SELECT * FROM track_customer WHERE name = '$site' ORDER BY sdate DESC");
+				while($show = mysqli_fetch_array($sql2)){
+			?>
 				<li>
-					<a href="#" class="float-right"><?php echo DateThai($result['from_name']); ?></a>
-					<p>วันที่เริ่มแพลน</p>
-				</li>			
+					<a href="#" class="float-right"><?php echo DateThai($show['sdate']); ?></a>
+					<p><?=$show['detail']?></p>
+				</li>
+				<?php } ?>
+				<li>
+					<a href="#" class="float-right"><?php echo DateThai($row['from_name']); ?></a>
+					<p><?=$row['detail']?></p>
+				</li>		
 			</ul>
 		</div>
 	</div>

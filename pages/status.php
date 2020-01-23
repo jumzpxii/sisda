@@ -1,12 +1,11 @@
-<link href="./plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
-<script src="./plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
 <div class="block-header"  style="margin-top:-50px;">
 <!-- Basic Examples -->
 <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                
+
             </div>
             <div class="body">
                 <div class="table-responsive">
@@ -22,7 +21,7 @@
                         </thead>
                     <tbody>
                     <?php 
-                        $sql = mysqli_query($db,"SELECT DATEDIFF(NOW(),from_name) AS count , income , name, from_name FROM tbl_sites ORDER BY count ASC");
+                        $sql = mysqli_query($db,"SELECT DATEDIFF(NOW(),from_name) AS count , income , name, from_name ,id FROM tbl_sites ORDER BY count ASC");
                         $i = 1;
                         while($show = mysqli_fetch_Array($sql)){
                             $name = $show['name'];
@@ -47,6 +46,9 @@
                                     <button class="btn bg-pink btn-xs waves-effect" id="showtimeline">
                                         <i class="material-icons">code</i>
                                     </button>
+                                    <button class="btn bg-cyan btn-xs waves-effect add_timeline" id="<?=$show['id'];?>" data-toggle="modal" data-target="#add_timeline">
+                                        +
+                                    </button>
                                 </td>                                           
                             </tr>
                         <?php $i++; } ?>
@@ -63,36 +65,7 @@
             <div class="modal fade" id="timeline" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                    <div class="collapse" id="collapseExample">
-                        <form action="" method="POST" id="update_timeline">
-                            <div class="container" style="padding:20px 0px 0px 20px;">
-                                <div class="row clearfix">
-                                    <div class="col-md-3">
-                                        <h2 class="card-inside-title">เพิ่มข้อมูล</h2>
-                                        <div class="input-group date" id="bs_datepicker">
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="sdate" placeholder="Please choose a date...">
-                                            </div>
-                                            <span class="input-group-addon">
-                                                <i class="material-icons">date_range</i>
-                                            </span>
-                                        </div> 
-                                        <input type="hidden" name="site" value="<?=$name;?>">                                     
-                                    </div> 
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-md-6">
-                                        <label for="detail">รายละเอียด</label>
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <textarea rows="2" class="form-control" name="detail" placeholder="Please type what you want..."></textarea>
-                                            </div>
-                                        </div>
-                                    </div>                                                                  
-                                </div> 
-                            </div>
-                        </form>
-                    </div>
+               
                     <div class="modal-header">
                         <h4 class="modal-title" id="timelineLabel">Timeline</h4>
                     </div>
@@ -100,20 +73,33 @@
                        
                     </div>
                         <div class="modal-footer">
-                            <button class="btn bg-cyan waves-effect" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                    aria-controls="collapseExample">
-                                เพิ่ม Timeline
-                            </button>
-                            <button type="button" class="btn btn-primary waves-effect" id="update">SAVE CHANGES</button>
                             <button type="button" class="btn btn-gray waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
                 </div>                 
             </div>
+
+            <!--  Modal addTimeline -->
+
+            <div class="modal fade" id="add_timeline" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <form action="" method="POST" id="updateForm">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="add_timelineLabel">add_timeline</h4>
+                    </div>
+                    
+                    <div class="modal-body" id="addtimeline">
+                    </div>                 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary waves-effect" id="update">SAVE CHANGES</button>
+                            <button type="button" class="btn btn-gray waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>                 
+            </div>
 <script>
-$('#bs_datepicker').datepicker({
-    format: 'dd/mm/yyyy'
-});
 
 $('.modal_name').click(function(){
     var name = $(this).attr('id');
@@ -127,11 +113,36 @@ $('.modal_name').click(function(){
         }
     })
 })    
+
+$('.add_timeline').click(function(){
+        var id = $(this).attr('id');
+          
+        $.ajax({
+            url: './response/add_timeline.php',
+            type: 'POST',
+            data: {id:id},
+            success:function(data){
+                $('#addtimeline').html(data);
+                
+            }
+        })
+    })
+
     $('#update').click(function(){
-        var check = $("#update_timeline").serialize();
-        console.log(check)
+        $.ajax({
+            url : './response/update_timeline.php',
+            type : 'POST',
+            data: $("#updateForm").serialize(),
+            success:function(data){
+                console.log(data);
+            }
+        })
+       
+      
 
     })
+
+    
 
 </script>
 
